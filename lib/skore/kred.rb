@@ -29,7 +29,7 @@ module Skore
 				result = JSON.parse(@data.body)
 				result["data"][0]["influence"]
 			else
-				0
+				-1
 			end
 		end
 

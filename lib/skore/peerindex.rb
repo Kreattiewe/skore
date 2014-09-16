@@ -9,7 +9,7 @@ module Skore
 		# Include httparty module from http querys
 		include HTTParty
 		default_timeout 1
-		
+
 		attr_accessor :data 
 
 		##
@@ -29,7 +29,7 @@ module Skore
 				result = JSON.parse(@data.body)
 				result["peerindex"]
 			else
-				0
+				-1
 			end
 		end
 

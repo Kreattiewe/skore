@@ -19,7 +19,7 @@ Using skore is quite simple, just having the right to feed each of the platforms
 ### Get Klout Score
 
     user = Skore::KloutSkore.new(API_KEY, TWITTER_USERNAME)
-    puts user.score_for_user
+    puts user.score
 
 
 return float number like 55.394093
@@ -27,7 +27,7 @@ return float number like 55.394093
 if you want to round the score simply add true method to ```score```
 
     user = Skore::KloutSkore.new(API_KEY, TWITTER_USERNAME)
-    puts user.scorer true
+    puts user.score true
 
 
 return 55 
@@ -45,6 +45,7 @@ return number like 777
     user = Skore::PeerIndex.new(API_KEY, TWITTER_USERNAME)
     puts user.score
 
+return number like 30
 
 ## Contributing
 
