@@ -8,6 +8,7 @@ module Skore
 		##
 		# Include httparty module from http querys
 		include HTTParty
+		base_uri "https://api.peerindex.com/1/actor/topic"
 		default_timeout 1
 
 		attr_accessor :data 
@@ -16,7 +17,7 @@ module Skore
 		# Initialize and load data from kred api
 		def initialize(api_key, username)
 			begin
-				@data = self.class.get("https://api.peerindex.com/1/actor/topic?twitter_screen_name=#{username}&api_key=#{api_key}")
+				@data = self.class.get("?twitter_screen_name=#{username}&api_key=#{api_key}")
 			rescue Timeout::Error
 				@data = false
 			end
