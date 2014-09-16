@@ -8,9 +8,10 @@ Gem::Specification.new do |spec|
   spec.version       = Skore::VERSION
   spec.authors       = ["Angel Botto"]
   spec.email         = ["angelbotto@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = "Analize social score from users."
+  spec.description   = "Analize social score from users"
+  spec.homepage      = "http://kreattiewe.com/gem/skore"
+  spec.post_install_message = "Thanks for instaling!!"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -19,5 +20,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.6"
+  spec.add_development_dependency "rspec", "~> 3.1.0"
   spec.add_development_dependency "rake"
+
+  
 end

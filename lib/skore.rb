@@ -1,5 +1,4 @@
 require "skore/version"
-
-module Skore
-  # Your code goes here...
-end
+require "skore/klout"
+require "skore/kred"
+require "skore/peerindex"
