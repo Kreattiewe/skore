@@ -11,6 +11,7 @@ module Skore
 		default_timeout 1
 
 		attr_accessor :data 
+
 		##
 		# Initialize and load data from kred api
 		def initialize(app_id, app_key, username)
@@ -21,6 +22,8 @@ module Skore
 			end
 		end
 
+		##
+		# Get score from Kred api
 		def score
 			if @data
 				result = JSON.parse(@data.body)

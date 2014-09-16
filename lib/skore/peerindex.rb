@@ -8,8 +8,10 @@ module Skore
 		##
 		# Include httparty module from http querys
 		include HTTParty
-
+		default_timeout 1
+		
 		attr_accessor :data 
+
 		##
 		# Initialize and load data from kred api
 		def initialize(api_key, username)
@@ -20,6 +22,8 @@ module Skore
 			end
 		end
 
+		##
+		# Get core from peerindex api
 		def score
 			if @data
 				result = JSON.parse(@data.body)
