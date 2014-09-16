@@ -26,7 +26,6 @@ module Skore
 				result = JSON.parse(@data.body)
 				result["data"][0]["influence"]
 			else
-				puts "Se totio por timeout"
 				0
 			end
 		end
