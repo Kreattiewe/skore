@@ -8,17 +8,27 @@ module Skore
 		##
 		# Include httparty module from http querys
 		include HTTParty
+		default_timeout 1
 
 		attr_accessor :data 
 		##
 		# Initialize and load data from kred api
 		def initialize(app_id, app_key, username)
-			@data = self.class.get("http://api.kred.com/kredscore?term=#{username}&source=twitter&app_id=#{app_id}&app_key=#{app_key}")
+			begin
+				@data = self.class.get("http://api.kred.com/kredscore?term=#{username}&source=twitter&app_id=#{app_id}&app_key=#{app_key}")
+			rescue Timeout::Error
+				@data = false
+			end
 		end
 
 		def score
-			result = JSON.parse(@data.body)
-			result["data"][0]["influence"]
+			if @data
+				result = JSON.parse(@data.body)
+				result["data"][0]["influence"]
+			else
+				puts "Se totio por timeout"
+				0
+			end
 		end
 
 	end
