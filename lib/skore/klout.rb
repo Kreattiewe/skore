@@ -12,15 +12,23 @@ module Skore
 		##
 		# Initialize Base and almacenate user information
 		def initialize(api_key, username)
-			Klout.api_key = api_key 
-			identity = Identity.find_by_screen_name(username)
-			@user = User.new(identity.id)
+			begin
+				Klout.api_key = api_key 
+				identity = Identity.find_by_screen_name(username)
+				@user = User.new(identity.id)
+			rescue
+				@error = true
+			end
 		end
 
 		##
 		# Get score for user
 		def score(round=false)
-			if round then @user.score.score.round else @user.score.score end
+			if !@error
+				if round then @user.score.score.round else @user.score.score end
+			else
+				-1
+			end
 		end
 
 
