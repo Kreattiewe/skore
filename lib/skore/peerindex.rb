@@ -17,7 +17,7 @@ module Skore
 		# Initialize and load data from kred api
 		def initialize(api_key, username)
 			begin
-				@data = self.class.get("?twitter_screen_name=#{username}&api_key=#{api_key}")
+				@data = self.class.get("?twitter_screen_name=#{username}&api_key=#{api_key}", :verify => false)
 			rescue Timeout::Error
 				@data = false
 			end
