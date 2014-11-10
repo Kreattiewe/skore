@@ -1,4 +1,5 @@
-require "skore/version"
-require "skore/klout"
-require "skore/kred"
-require "skore/peerindex"
+require 'skore/version'
+require 'skore/klout'
+require 'skore/kred'
+require 'skore/peerindex'
+require 'skore/skore_util'

@@ -26,26 +26,27 @@ return float number like 55.394093
 
 if you want to round the score simply add true method to ```score```
 
-    user = Skore::KloutSkore.new(API_KEY, TWITTER_USERNAME)
-    puts user.score true
-
+    score = Skore::KloutSkore.new(@klout_api_key).score(username, true)
 
 return 55 
 
 ### Get Kred Score
 
-    user = Skore::Kred.new(APP_ID, APP_KEY, TWITTER_USERNAME)
-    puts user.score  
+    score = Skore::Kred.new(@kred_app_id, @kred_app_key).score(social_network.to_sym, username)
 
 return number like 777 
 
 
 ### Get PeerIndex Score 
 
-    user = Skore::PeerIndex.new(API_KEY, TWITTER_USERNAME)
-    puts user.score
+    score = Skore::PeerIndex.new(@peerindex_api_key).score(username)
 
 return number like 30
+
+### Or get it for all(Only twitter)
+
+    scores = Skore::SkoreUtil.new({klout_api_key: '', peerindex_api_key: '', kred_app_id: '', kred_app_key: ''}).score('twitter', 'mrkaspa')
+    scores = Skore::SkoreUtil.new({klout_api_key: ''}).score('instagram', 'mrkaspa')
 
 ## Contributing
 
